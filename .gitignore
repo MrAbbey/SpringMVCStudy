@@ -1,0 +1,8 @@
+.idea/
+SpringMVC_0040_SpringMyBatis/target/test-classes/com/mybatis/mapper/ItemsMapperCustomTest.class
+*.iml
+*.MF
+SpringMVC_0010_GettingStart/target/
+SpringMVC_0020_AdapterMapping/target/
+SpringMVC_0030_Annotation_AdapterMapping/target/
+SpringMVC_0040_SpringMyBatis/target/

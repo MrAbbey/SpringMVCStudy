@@ -1,0 +1,14 @@
+这个模块主要用于验证注解方式来进行配置
+1.配置中用于处理注解处理器映射器:
+org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2.注解处理器适配器
+org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter
+
+3.当然可以采用快捷的方式进行配置，来替代上述组件的加载
+<mvc:annotation-driven />
+
+4.为视图配置前缀和后缀,用于简化视图的编写
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+</bean>

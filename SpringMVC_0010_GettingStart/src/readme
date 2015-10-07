@@ -1,0 +1,20 @@
+Spring MVC的入门程序
+下面简单回顾下用户发出请求，到服务器响应的步骤:
+1.用户通过URL发出请求给DispatcherServlet,等待DispatcherServlet的响应
+2.DispatcherServlet将分析用户的请求，并请求处理器映射器(HandlerMapper)，该请求应该由那个处理器处理
+3.DispatcherServlet收到处理用户请求的处理器Hanler
+4.DispatcherServlet请求处理器适配器(HandlerAdapter)来执行处理器
+5.处理器适配器(HandlerAdapter)执行处理器
+6.处理器(Handler)将处理好的ModelAndView返回给处理器适配器(HandlerAdapter)
+7.处理器适配器（HandlerAdapter)将ModelAndView返回给DispatcherServlet
+8.DispatcherServlet通过返回的逻辑视图(View)去请求视图解析器(ViewResolver)返回真实的视图
+9.ViewResolver通过逻辑视图查询到真实的视图,将真实的视图返回给DispatcherServlet
+10.DispatcherServlet填充数据和渲染视图
+11.DispatcherServlet将真实的视图返回给用户
+
+SpringMVC的组件:
+1.DispatcherServlet
+2.HandlerMapper
+3.HandlerAdapter
+4.Handler
+5.ViewResolver

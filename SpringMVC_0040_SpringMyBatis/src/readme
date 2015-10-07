@@ -1,0 +1,59 @@
+测试这个模块遇到了两个平台问题和一个表单中添加了enctype="multipart/form-data"无法通过spring获取request中的参数数据
+第一个平台问题:
+SpringMVC3.2.0注解方式的开发和jdk1.8以上版本不兼容
+第二个平台问题是:
+Idea Maven在编译源文件的时候,默认会忽略包下的配置文件,所以需要在Maven做以下配置:
+<build>
+    <resources>
+        <resource>
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*.xml</include>
+            </includes>
+        </resource>
+    </resources>
+</build>
+
+这个模块主要测试一下几个问题:
+1.@RequestMapping
+    1.1@RequestMapping的作用
+    1.2@RequestMapping对请求方法的限定
+2.Contoller中方法的返回值类型
+    2.1返回ModelAndView
+        可以在Controller中的定义ModelAndView对象并返回,对象中可以添加Model数据，指定View对象。
+    2.2返回void
+        可以在方法的形参中定义request，response,使用Request,response指定响应的结果
+        2.2.1使用request转发页面request.getRequestDispatcher("").forward();
+        2.2.2使用response重定向页面response.sendRedirect("");
+        2.2.3通过response指定响应结果
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("application/json;charset=utf-8");
+        response.getWriter().write("json串");
+    2.3返回String
+        2.3.1指定返回的逻辑视图，通过视图解析器解析为真实的物理地址
+        2.3.2Redirect重定向
+        2.3.3Forward转发
+3.参数绑定
+    3.1默认支持的参数类型
+        在处理器形参中添加如下类型的参数处理器适配器会自动识别并进行复制
+        HttpServletRequest,HttpServletResponse,HttpSession,Model/ModelMap
+    3.2简单类型绑定
+        如果参数类型为简单类型，并且参数名称和用户提交的参数名称一致则不需要做处理
+        如果参数名称和用户提交的参数名称不一致，需要通过@QueryParam进行制定
+    3.3pojo
+        3.3.1简单的POJO
+        3.3.2包装的POJO
+    3.4自定义类型转换器
+    3.5绑定数组类型数据
+    3.6绑定list类型参数
+    3.7绑定Map类型参数
+4.数据校验(需要配置校验器和国际化文件)
+    校验器是在处理器适配器执行的时候调用的
+5.异常处理
+    需要配置异常解析器,异常解析器是处理Controller产生的异常
+6.文件上传
+    需要添加媒体解析器CommonsMultipartResolver,通过方法参数MultipartFile来接收
+7.Json数据交互
+8.Restful API的支持
+9.拦截器的配置和开发
+

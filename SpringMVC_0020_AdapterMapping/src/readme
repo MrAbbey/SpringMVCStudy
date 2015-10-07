@@ -1,0 +1,12 @@
+#验证非注解的处理器识适配器
+配置处理器适配器,使用SimpleControllerHandlerAdapter的处理器必须实现Controller接口
+org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter
+配置另外一个处理器适配器,使用HttpRequestHandlerAdapter的处理器必须实现HttpRequestHandler接口
+org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter
+#验证非注解的处理器映射器
+根据bean的name进行查找Handler 将action的url配置在bean的name中
+org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping
+配置另外一个视图映射器,用于批量处理视图映射
+org.springframework.web.servlet.handler.SimpleUrlHandlerMapping
+
+
