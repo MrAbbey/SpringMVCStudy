@@ -13,7 +13,8 @@ import java.util.List;
 public class ShowItemsController {
 
     @RequestMapping("/queryItems.action")
-    public ModelAndView queryItems() throws Exception{
+    public ModelAndView queryItems(int page,String name) throws Exception{
+        System.out.println("当前第:" + page + "页"  + "name=" +name);
         Items items1 = new Items();
         items1.setId(1);
         items1.setName("笔记本");
